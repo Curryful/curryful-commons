@@ -1,7 +1,5 @@
 package io.github.curryful.commons;
 
-import java.util.function.Function;
-
 public abstract class Monad<T> {
 
     protected T value;
@@ -10,9 +8,17 @@ public abstract class Monad<T> {
     // Methods
     // /////////////////////////////////////////////////////////////////////////
 
-    public abstract <V> Monad<V> map(Function<T, V> f);
+	// TODO: Abstract map and flat map methods
 
-    // public abstract <V, M extends Monad<V>> M flatMap(Function<T, M> f);
+	/**
+	 * If a value is present, returns the value, otherwise returns the provided value.
+	 * 
+	 * @param other the value to be returned if there is no value present
+	 * @return the value, if present, otherwise the provided value
+	 */
+	public T orElse(T other) {
+		return hasValue() ? value : other;
+	}
 
     public boolean hasValue() {
         return value != null;
@@ -22,3 +28,4 @@ public abstract class Monad<T> {
         return value;
     }
 }
+

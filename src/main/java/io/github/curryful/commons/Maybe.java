@@ -25,13 +25,12 @@ public class Maybe<T> extends Monad<T> {
         return optional.map(Maybe::just).orElse(Maybe.none());
     }
 
-    @Override
-    public <V> Monad<V> map(Function<T, V> f) {
+    public <V> Maybe<V> map(Function<T, V> f) {
         if (!hasValue()) {
             return Maybe.none();
         }
 
-        return Maybe.just(f.apply(value));
+        return Maybe.ofNullable(f.apply(value));
     }
 
     public <V> Maybe<V> flatMap(Function<T, Maybe<V>> f) {
@@ -42,3 +41,4 @@ public class Maybe<T> extends Monad<T> {
         return f.apply(value);
     }
 }
+

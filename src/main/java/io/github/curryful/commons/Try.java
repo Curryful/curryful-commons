@@ -19,14 +19,21 @@ public class Try<T> extends Monad<T> {
         return new Try<>(null, error);
     }
 
-    @Override
-    public <V> Monad<V> map(Function<T, V> f) {
+    public <V> Try<V> map(Function<T, V> f) {
         if (value == null) {
             return Try.failure(error);
         }
 
         return Try.success(f.apply(value));
     }
+
+	public <V> Try<V> flatMap(Function<T, Try<V>> f) {
+		if (value == null) {
+			return Try.failure(error);
+		}
+
+		return f.apply(value);
+	}
 
     public boolean isFailure() {
         return error != null;
