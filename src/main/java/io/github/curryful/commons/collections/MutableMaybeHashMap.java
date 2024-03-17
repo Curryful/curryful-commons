@@ -1,6 +1,6 @@
 package io.github.curryful.commons.collections;
 
-import io.github.curryful.commons.Maybe;
+import io.github.curryful.commons.monads.Maybe;
 
 /**
  * Extension of {@link ImmutableMaybeHashMap} that allows for mutation of the map.

@@ -3,7 +3,7 @@ package io.github.curryful.commons.collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.github.curryful.commons.Maybe;
+import io.github.curryful.commons.monads.Maybe;
 
 /**
  * Wrapper for an immutable {@link HashMap} to wrap value returns in {@link Maybe}s.

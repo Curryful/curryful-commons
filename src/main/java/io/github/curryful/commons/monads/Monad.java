@@ -1,4 +1,4 @@
-package io.github.curryful.commons;
+package io.github.curryful.commons.monads;
 
 public abstract class Monad<T> {
 
