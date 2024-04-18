@@ -2,6 +2,7 @@ package io.github.curryful.commons.collections;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 import io.github.curryful.commons.monads.Maybe;
 
@@ -55,6 +56,14 @@ public class ImmutableMaybeHashMap<K, V> {
 	 */
 	public int size() {
 		return map.size();
+	}
+
+	/**
+	 * Returns a {@link Stream} of the key-value pairs in the map.
+	 * @see HashMap#entrySet()
+	 */
+	public Stream<Map.Entry<K, V>> stream() {
+		return map.entrySet().stream();
 	}
 }
 
